@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #0e1117;
+  color: #fafafa;
+  background-image: url('../assets/bg.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
+.codeBlockStyle {
+  background-color: #f7f7f7;
+  border-left: 4px solid #ccc;
+  padding: 10px 20px;
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+.button,
+.button *,
+.button :after,
+.button :before,
+.button:after,
+.button:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+.button {
+  appearance: button;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
+  background-color: #000;
+  background-image: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 100%;
+  line-height: 1.5;
+  margin: 0;
+  mask-image: -webkit-radial-gradient(#000, #fff);
+  padding: 0;
+}
+.button:disabled {
+  cursor: default;
+}
+.button:-moz-focusring {
+  outline: auto;
+}
+.button svg {
+  display: block;
+}
+.button [hidden] {
+  display: none;
+}
+.button {
+  background: #fff;
+  border: 1px solid;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #000;
+  display: block;
+  font-weight: 900;
+  mask-image: none;
+  overflow: hidden;
+  padding: 1rem 3rem;
+  position: relative;
+  text-transform: uppercase;
+  transition: 0.2s;
+}
+.button:hover {
+  box-shadow: 0 6px 0 -4px #fff, 0 9px 0 -4px #aaa, 0 12px 0 -4px #000;
+  transform: translateY(-5px);
+}

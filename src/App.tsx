@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react'
+import {EditorState, convertFromRaw, convertToRaw} from 'draft-js'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Components
+import Button from './Components/Button'
+import RichTextEditor from './Components/RichTextEditor'
+import Title from './Components/Title'
+
+// Style
+import './Styles/app.scss'
+
+const loadEditorStateFromLocalStorage = () => {
+  const savedContent = localStorage.getItem('editorContent')
+  return savedContent
+    ? EditorState.createWithContent(convertFromRaw(JSON.parse(savedContent)))
+    : EditorState.createEmpty()
 }
 
-export default App;
+const saveEditorStateToLocalStorage = (editorState: EditorState) => {
+  const contentState = editorState.getCurrentContent()
+  localStorage.setItem(
+    'editorContent',
+    JSON.stringify(convertToRaw(contentState))
+  )
+}
+
+const App = () => {
+  const [editorState, setEditorState] = useState(
+    loadEditorStateFromLocalStorage
+  )
+
+  const handleSave = () => {
+    saveEditorStateToLocalStorage(editorState)
+  }
+
+  return (
+    <div className='editor-container'>
+      <div className='editor-container-header'>
+        <Title name='Kirankumar Gonti' />
+        <Button onClick={handleSave} label='Save' />
+      </div>
+      <div className='editor-container-body'>
+        <RichTextEditor
+          editorState={editorState}
+          setEditorState={setEditorState}
+        />
+      </div>
+    </div>
+  )
+}
+
+export default App
