@@ -213,8 +213,6 @@ const RichTextEditor = ({editorState, setEditorState}: RichTextEditorProps) => {
     const currentBlock = contentState.getBlockForKey(currentBlockKey)
     const blockType = currentBlock.getType()
 
-    console.log({kiran: blockType})
-
     const toggleBlockTypes = ['header-one', 'code-block']
 
     if (toggleBlockTypes.includes(blockType)) {
